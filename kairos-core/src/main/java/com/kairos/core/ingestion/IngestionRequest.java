@@ -14,11 +14,21 @@ import lombok.Getter;
  */
 @Getter
 public class IngestionRequest {
+    /**
+     * The raw file payload.
+     */
     private final MultipartFile file;
+    /**
+     * A structured metadata manifest.
+     */
     private final Map<String, Object> metadataManifest;
 
-    
-
+    /**
+     * Private constructor to enforce object creation through the factory method.
+     *
+     * @param file The uploaded file.
+     * @param metadata The user-provided metadata.
+     */
     private IngestionRequest(MultipartFile file, Map<String,Object> metadata) {
     	this.file = file;
     	this.metadataManifest = metadata;

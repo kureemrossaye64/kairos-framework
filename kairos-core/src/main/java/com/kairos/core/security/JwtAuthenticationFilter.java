@@ -18,6 +18,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * A custom Spring Security filter that intercepts incoming HTTP requests to authenticate users based on a JWT token.
+ * This filter extends {@link OncePerRequestFilter} to ensure it's executed once per request.
+ * It extracts the JWT from the "Authorization" header, validates it, and sets the user's authentication
+ * details in the {@link SecurityContextHolder} if the token is valid.
+ */
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -25,6 +31,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
 
+    /**
+     * The core logic of the JWT authentication filter.
+     * This method is called for each incoming request.
+     *
+     * @param request The incoming HTTP request.
+     * @param response The outgoing HTTP response.
+     * @param filterChain The filter chain to pass the request along to.
+     * @throws ServletException If a servlet-related error occurs.
+     * @throws IOException If an I/O error occurs.
+     */
     @Override
     protected void doFilterInternal(
             @NonNull HttpServletRequest request,
