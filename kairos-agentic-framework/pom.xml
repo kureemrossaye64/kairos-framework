@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.kairos</groupId>
+		<artifactId>kairos-platform</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>kairos-agentic-framework</artifactId>
+	<packaging>jar</packaging>
+
+	<name>KAIROS - Agentic Framework</name>
+	<description>Provides core components for building AI agents and tools.</description>
+
+	<dependencies>
+		<!-- Dependency on all our other KAIROS modules -->
+		<dependency>
+			<groupId>com.kairos</groupId>
+			<artifactId>kairos-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.kairos</groupId>
+			<artifactId>kairos-ai-abstraction</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.kairos</groupId>
+			<artifactId>kairos-vector-search</artifactId>
+		</dependency>
+		
+		
+
+		<!--
+        LangChain4j Core and AI Services. This brings in the core agentic
+        abstractions like @Tool, @AiService, and memory management.
+        -->
+		<dependency>
+			<groupId>dev.langchain4j</groupId>
+			<artifactId>langchain4j</artifactId>
+		</dependency>
+
+		<!-- Spring Boot dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
+		<dependency>
+			<groupId>org.reflections</groupId>
+			<artifactId>reflections</artifactId>
+			<version>0.10.2</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<!-- Spring Boot Maven Plugin to create an executable JAR -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

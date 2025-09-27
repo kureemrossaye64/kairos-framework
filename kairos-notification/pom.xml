@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.kairos</groupId>
+    <artifactId>kairos-platform</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>kairos-notification</artifactId>
+   <packaging>jar</packaging>
+
+    <name>KAIROS - Notification Service</name>
+    <description>Abstracts interactions with notification providers (e.g., Email, SMS).</description>
+
+    <dependencies>
+    	<dependency>
+    		<groupId>com.kairos</groupId>
+    		<artifactId>kairos-core</artifactId>
+    	</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+    </dependencies>
+</project>

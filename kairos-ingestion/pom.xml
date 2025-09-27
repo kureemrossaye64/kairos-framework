@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.kairos</groupId>
+		<artifactId>kairos-platform</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>kairos-ingestion</artifactId>
+	<name>KAIROS - Ingestion Framework</name>
+	<description>Provides a generic framework for building data ingestion
+		pipelines.</description>
+
+	<dependencies>
+		<!-- Dependency on our own KAIROS modules -->
+		<dependency>
+			<groupId>com.kairos</groupId>
+			<artifactId>kairos-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.kairos</groupId>
+			<artifactId>kairos-vector-search</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.kairos</groupId>
+			<artifactId>kairos-storage</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId> <!-- For
+			MultipartFile -->
+		</dependency>
+		<!-- Spring Framework dependencies for async processing -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+
+		<!-- Apache Tika for document parsing (extracting text from PDF, DOCX
+		etc.) -->
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-core</artifactId>
+			<version>3.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-parser-pdf-module</artifactId>
+			<version>3.2.2</version>
+		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/org.apache.tika/tika-parser-miscoffice-module -->
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-parser-miscoffice-module</artifactId>
+			<version>3.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.hypersistence</groupId>
+			<artifactId>hypersistence-utils-hibernate-60</artifactId>
+			<version>3.7.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+</project>
