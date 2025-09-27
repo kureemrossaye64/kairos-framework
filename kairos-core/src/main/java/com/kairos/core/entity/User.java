@@ -24,18 +24,33 @@ import lombok.Setter;
 @Setter
 public class User extends BaseEntity implements UserDetails {
 
+    /**
+     * The user's unique username.
+     */
     @NotBlank
     @Column(nullable = false, unique = true)
     private String username;
 
+    /**
+     * The user's hashed password.
+     */
     @NotBlank
     @Column(nullable = false)
     private String password;
 
+    /**
+     * The user's role, e.g., "ROLE_USER", "ROLE_ADMIN".
+     */
     @NotBlank
     @Column(nullable = false)
     private String role; // Using simple String-based roles, e.g., "ROLE_USER", "ROLE_ADMIN"
 
+    /**
+     * Returns the authorities granted to the user.
+     * In this implementation, a single authority "ADMIN" is granted to all users.
+     *
+     * @return A collection of granted authorities.
+     */
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return Collections.singletonList(new SimpleGrantedAuthority("ADMIN"));

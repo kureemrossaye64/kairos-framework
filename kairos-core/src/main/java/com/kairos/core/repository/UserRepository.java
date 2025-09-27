@@ -8,15 +8,19 @@ import java.util.Optional;
 import java.util.UUID;
 
 /**
- * Spring Data JPA repository for the User entity.
- * This interface provides full CRUD functionality out of the box.
+ * Spring Data JPA repository for the {@link User} entity.
+ * This interface provides full CRUD (Create, Read, Update, Delete) functionality
+ * for User objects, managed by Spring Data JPA.
  */
 @Repository
 public interface UserRepository extends JpaRepository<User, UUID> {
     /**
      * Finds a user by their unique username.
+     * This is a custom query method automatically implemented by Spring Data JPA
+     * based on the method name.
+     *
      * @param username The username to search for.
-     * @return an Optional containing the user if found, or an empty Optional otherwise.
+     * @return an {@link Optional} containing the user if found, or an empty {@link Optional} otherwise.
      */
     Optional<User> findByUsername(String username);
 }
